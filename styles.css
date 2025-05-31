@@ -238,6 +238,7 @@ body.dark-mode .moon-icon {
 }
 
 .copy-button.copied {
+    background-color: var(--copied-button-bg);
 }
 
 .copy-button svg {
