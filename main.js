@@ -170,4 +170,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('modelInput').addEventListener('input', () => {
         updateCommandsGrid(document.getElementById('searchInput').value);
     });
-}); 
+
+    // 主题切换功能
+    const themeToggle = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.body.classList.add(currentTheme);
+    } else {
+        document.body.classList.add('light-mode'); // Default to light mode
+    }
+
+    themeToggle.addEventListener('click', () => {
+        if (document.body.classList.contains('light-mode')) {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+            document.body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light-mode');
+        }
+    });
+});

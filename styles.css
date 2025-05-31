@@ -7,15 +7,47 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     padding: 20px;
+}
+
+/* Light mode (default) */
+body.light-mode {
+    --bg-color: #f5f5f5;
+    --container-bg-color: white;
+    --text-color: #333;
+    --header-color: #2c3e50;
+    --border-color: #ddd;
+    --card-bg-color: #fff;
+    --card-border-color: #e1e1e1;
+    --usage-bg-color: #f8f9fa;
+    --copy-button-bg: #4CAF50;
+    --copy-button-hover-bg: #45a049;
+    --copied-button-bg: #2196F3;
+    --no-results-color: #666;
+}
+
+/* Dark mode */
+body.dark-mode {
+    --bg-color: #2c2c2c;
+    --container-bg-color: #3c3c3c;
+    --text-color: #e0e0e0;
+    --header-color: #f0f0f0;
+    --border-color: #555;
+    --card-bg-color: #4a4a4a;
+    --card-border-color: #666;
+    --usage-bg-color: #5a5a5a;
+    --copy-button-bg: #6cb76e;
+    --copy-button-hover-bg: #5ca05e;
+    --copied-button-bg: #4da6f7;
+    --no-results-color: #bbb;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background-color: white;
+    background-color: var(--container-bg-color);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -23,15 +55,96 @@ body {
 
 h1 {
     text-align: center;
-    color: #2c3e50;
+    color: var(--header-color);
     margin-bottom: 30px;
 }
+
+.search-box,
+.model-input {
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    background-color: var(--container-bg-color);
+}
+
+.command-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+}
+
+.command-name {
+    color: var(--header-color);
+}
+
+.command-description {
+    color: var(--text-color);
+}
+
+.command-usage {
+    background-color: var(--usage-bg-color);
+}
+
+.copy-button {
+    background-color: var(--copy-button-bg);
+}
+
+.copy-button:hover {
+    background-color: var(--copy-button-hover-bg);
+}
+
+.copy-button.copied {
+    background-color: var(--copied-button-bg);
+}
+
+.no-results {
+    color: var(--no-results-color);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--text-color);
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+body.light-mode .moon-icon {
+    display: none;
+}
+
+body.dark-mode .sun-icon {
+    display: none;
+}
+
+body.dark-mode .moon-icon {
+    display: inline-block;
+}
+
+
 
 .search-box {
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
-    border: 2px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
 }
@@ -45,7 +158,6 @@ h1 {
 .model-input {
     flex: 1;
     padding: 15px;
-    border: 2px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
 }
@@ -73,8 +185,6 @@ h1 {
 }
 
 .command-card {
-    background-color: #fff;
-    border: 1px solid #e1e1e1;
     border-radius: 8px;
     padding: 20px;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -88,19 +198,16 @@ h1 {
 .command-name {
     font-size: 18px;
     font-weight: bold;
-    color: #2c3e50;
     margin-bottom: 10px;
 }
 
 .command-description {
-    color: #666;
     font-size: 14px;
 }
 
 .command-usage {
     margin-top: 10px;
     padding: 10px;
-    background-color: #f8f9fa;
     border-radius: 4px;
     font-family: monospace;
     font-size: 14px;
@@ -115,7 +222,6 @@ h1 {
     top: 5px;
     right: 5px;
     padding: 4px 8px;
-    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;
@@ -128,12 +234,10 @@ h1 {
 }
 
 .copy-button:hover {
-    background-color: #45a049;
     transform: translateY(-1px);
 }
 
 .copy-button.copied {
-    background-color: #2196F3;
 }
 
 .copy-button svg {
@@ -164,6 +268,5 @@ h1 {
 .no-results {
     text-align: center;
     padding: 20px;
-    color: #666;
     font-style: italic;
-} 
+}
