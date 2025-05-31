@@ -5,15 +5,17 @@
 ## 功能特点
 
 - 🚀 简洁美观的用户界面
-- 🔍 实时命令搜索功能
-- 📋 一键复制命令
+- 🔍 实时命令搜索功能（支持正则表达式）
+- 📋 一键复制命令（自动转换Windows/macOS路径格式）
 - 📱 响应式设计，支持各种设备
-- 🎯 快速模型名称输入
-- 💡 命令使用说明和示例
+- 🎯 智能模型名称补全
+- 💡 带参数说明的命令示例
+- 🌓 暗黑/明亮主题切换
+- ⚡ 离线优先PWA支持
 
 ## 支持的命令
 
-工具支持以下 Ollama 命令：
+工具支持以下 Ollama 命令（v0.1.8+）：
 
 - `serve` - 启动 Ollama 服务
 - `create` - 从 Modelfile 创建模型
@@ -29,10 +31,25 @@
 
 ## 使用方法
 
-1. 打开 `ollama-commands.html` 文件
-2. 在搜索框中输入关键词可以快速查找命令
-3. 在模型输入框中输入模型名称
-4. 点击命令卡片上的复制按钮即可复制完整命令
+1. 克隆仓库：
+```bash
+git clone https://github.com/yourusername/ollama-command-helper.git
+```
+2. 进入项目目录：
+```bash
+cd ollama-command-helper
+```
+3. 使用现代浏览器打开 `ollama-commands.html` 文件
+
+## 界面预览
+
+![界面截图](screenshot.png)
+
+## 快捷键说明
+
+- Ctrl/Cmd + F: 快速聚焦搜索框
+- Enter: 执行当前选中命令
+- Esc: 清空搜索内容
 
 ## 技术栈
 
@@ -50,4 +67,4 @@
 
 ## 许可证
 
-MIT License 
+MIT License
